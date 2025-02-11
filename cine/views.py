@@ -31,11 +31,14 @@ class CineDetailView(DetailView):
     template_name = "cine_detail.html"
     context_object_name = ""
 
+from django.urls import reverse_lazy
+
 class NewCineCreateView(CreateView):
     model = Cine
     form_class = CineModelForm
     template_name = "new_cine.html"
-    success_url = ""
+    success_url = "/"
+
 
 class CineUpdateView(UpdateView):
     model = Cine

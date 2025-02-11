@@ -146,7 +146,6 @@
 </style>
 
 
-  </style>
    <form method="GET" action="{% url 'cine_list' %}">
     <input type="text" name="search" placeholder="Buscar filme..." {% if request.GET.search %}value="{{ request.GET.search }}"{% endif %}>
     <button type="submit">Buscar</button>
@@ -157,8 +156,8 @@
       {% for cine in cine %}
         <a href="{% url 'cine_detail' cine.pk %}">
           <div class="cine-card">
-            <img src="{{ cine.photo.url }}" alt="{{ cine.name }} - {{ cine.matricula }}">
-            <h2>{{ cine.Title }} - {{ cine.genre}} {{ cine.resume }}</h2>
+            <img src="{{ cine.photo.url }}" alt="{{ cine.name }}">
+            <h2>{{ cine.Title }} {{ cine.genre}} </h2>
             <p>{{ cine.name }} - {{ cine.turma }}- {{ cine.bio }}</p>
           </div>
         </a>

@@ -27,12 +27,12 @@ class Director(models.Model):
 
 
 # Define the Actor model
-class Actor(models.Model):
+# class Actor(models.Model):
     
-    name = models.CharField(max_length=255)  # Name of the actor
+#     name = models.CharField(max_length=255)  # Name of the actor
 
-    def __str__(self):
-        return self.name  # String representation of the actor
+#     def __str__(self):
+#         return self.name  # String representation of the actor
 
 
 # Define the Producer model
@@ -67,7 +67,8 @@ class Cine(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='cine_genre')  # Genre of the movie
     streaming = models.ForeignKey(streaming, on_delete=models.PROTECT, related_name='cine_streaming', null=True, blank=True)  # Streaming service
     debut_year = models.IntegerField(null=True, blank=True)  # Year of debut, can be null or blank
-    actor = models.ForeignKey(Actor, on_delete=models.PROTECT, related_name='cine_actor', null=True, blank=True)  # Actor in the movie
+    actor = models.CharField(max_length=255)
+    # actor = models.ForeignKey(Actor, on_delete=models.PROTECT, related_name='cine_actor', null=True, blank=True)  # Actor in the movie
     director = models.ForeignKey(Director, on_delete=models.PROTECT, related_name='cine_director', null=True, blank=True)  # Director of the movie
     # producers = models.ForeignKey(Producer, on_delete=models.PROTECT, related_name='cine_producers', null=True, blank=True)  # Producers of the movie
     # original_writer = models.CharField(null=True, blank=True, max_length=255)  # Original writer, can be null or blank
